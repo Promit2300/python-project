@@ -1,0 +1,92 @@
+Lists-
+Lists are used to store multiple items in a single variable.
+
+Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are Tuple, Set, and Dictionary, all with different qualities and usage.
+
+Lists are created using square brackets:
+thislist = ["apple", "banana", "cherry"]
+print(thislist) 	|OUTPUT-["apple", "banana", "cherry"]
+List Items
+List items are ordered, changeable, and allow duplicate values.
+
+List items are indexed, the first item has index [0], the second item has index [1] etc.
+
+Ordered
+When we say that lists are ordered, it means that the items have a defined order, and that order will not change.
+
+If you add new items to a list, the new items will be placed at the end of the list.
+
+Note: There are some list methods that will change the order, but in general: the order of the items will not change.
+Changeable
+The list is changeable, meaning that we can change, add, and remove items in a list after it has been created.
+Allow Duplicates
+Since lists are indexed, lists can have items with the same value:
+Lists allow duplicate values:
+
+thislist = ["apple", "banana", "cherry", "apple", "cherry"]
+print(thislist) 	|OUTPUT-["apple", "banana", "cherry", "apple", "cherry"]
+List Length
+To determine how many items a list has, use the len() function:
+thislist = ["apple", "banana", "cherry"]
+print(len(thislist))	|OUTPUT-3
+From Python's perspective, lists are defined as objects with the data type 'list':
+
+<class 'list'>
+What is the data type of a list?
+
+mylist = ["apple", "banana", "cherry"]
+print(type(mylist))	|OUTPUT-list
+The list() Constructor
+It is also possible to use the list() constructor when creating a new list.
+Using the list() constructor to make a List:
+
+thislist = list(("apple", "banana", "cherry")) # note the double round-brackets
+print(thislist) 	|OUTPUT-["apple", "banana", "cherry"]
+To insert a new list item, without replacing any of the existing values, we can use the insert() method.
+thislist = ["apple", "banana", "cherry"]
+thislist.insert(2, "watermelon")
+print(thislist)		|OUTPUT-['apple', 'banana', 'watermelon', 'cherry']
+To append elements from another list to the current list, use the extend() method.
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+
+thislist.extend(tropical)
+
+print(thislist) 	|OUTPUT-['apple', 'banana', 'cherry', 'mango', 'pineapple', 'papaya']
+Add Any Iterable
+The extend() method does not have to append lists, you can add any iterable object (tuples, sets, dictionaries etc.).
+thislist = ["apple", "banana", "cherry"]
+thistuple = ("kiwi", "orange")
+thislist.extend(thistuple)
+print(thislist) 	|OUTPUT-['apple', 'banana', 'cherry', 'kiwi', 'orange']
+The del keyword also removes the specified index:
+thislist = ["apple", "banana", "cherry"]
+del thislist[0]
+print(thislist) 	|OUTPUT-['banana', 'cherry']
+List Comprehension
+List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+print(newlist)
+List comprehension mode:
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x for x in fruits if "a" in x]
+
+print(newlist) 		|OUTPUT-['apple', 'banana', 'mango']
+The Syntax
+newlist = [expression for item in iterable if condition == True]
+The return value is a new list, leaving the old list unchanged.
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x if x != "banana" else "orange" for x in fruits]
+
+print(newlist) 		|OUTPUT-['apple', 'orange', 'cherry', 'kiwi', 'mango']
+
+
+i am the bad guy if yiu know 

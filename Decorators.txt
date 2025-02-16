@@ -1,0 +1,71 @@
+In Python, decorators are a powerful and flexible way to modify or extend the behavior of functions or methods, without changing their actual code. A decorator is essentially a function that takes another function as an argument and returns a new function with enhanced functionality.
+
+Decorators are often used in scenarios such as logging, authentication and memorization, allowing us to add additional functionality to existing functions or methods in a clean, reusable way.
+# A simple decorator function
+def decorator(func):
+  
+    def wrapper():
+        print("Before calling the function.")
+        func()
+        print("After calling the function.")
+    return wrapper
+
+# Applying the decorator to a function
+@decorator
+
+def greet():
+    print("Hello, World!")
+
+greet()
+OUTPUT-
+Before calling the function.
+Hello, World!
+After calling the function.
+Explanation:
+
+decorator takes the greet function as an argument.
+It returns a new function (wrapper) that first prints a message, calls greet() and then prints another message.
+The @decorator syntax is a shorthand for greet = decorator(greet).
+Higher-Order Functions
+In Python, higher-order functions are functions that take one or more functions as arguments, return a function as a result or do both. Essentially, a higher-order function is a function that operates on other functions. This is a powerful concept in functional programming and is a key component in understanding how decorators work.
+
+Key Properties of Higher-Order Functions:
+Taking functions as arguments: A higher-order function can accept other functions as parameters.
+Returning functions: A higher-order function can return a new function that can be called later.
+Example of a Higher-Order Function:
+# A higher-order function that takes another function as an argument
+def fun(f, x):
+    return f(x)
+
+# A simple function to pass
+def square(x):
+    return x * x
+
+# Using apply_function to apply the square function
+res = fun(square, 5)
+print(res)
+OUTPUT-25
+# Assigning a function to a variable
+def greet(n):
+    return f"Hello, {n}!"
+
+say_hi = greet  # Assign the greet function to say_hi
+print(say_hi("Alice"))  # Output: Hello, Alice!
+
+# Passing a function as an argument
+def apply(f, v):
+    return f(v)
+
+res = apply(say_hi, "Bob")
+print(res)  # Output: Hello, Bob!
+
+# Returning a function from another function
+def make_mult(f):
+    def mult(x):
+        return x * f
+    return mult
+
+dbl = make_mult(2)
+print(dbl(5))  # Output: 10
+
+

@@ -1,0 +1,18 @@
+Generator Function in Python
+A generator function is a special type of function that returns an iterator object. Instead of using return to send back a single value, generator functions use yield to produce a series of results over time. This allows the function to generate values and pause its execution after each yield, maintaining its state between iterations.
+def fun(max):
+    cnt = 1
+    while cnt <= max:
+        yield cnt
+        cnt += 1
+
+ctr = fun(5)
+for n in ctr:
+    print(n)
+output-
+1
+2
+3
+4
+5
+Explanation: This generator function fun yields numbers from 1 up to a specified max. Each call to next() on the generator object resumes execution right after the yield statement, where it last left off.

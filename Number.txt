@@ -1,0 +1,10 @@
+INTEGER:
+An integer (pronounced IN-tuh-jer) is a whole number (not a fractional number) that can be positive, negative, or zero. Examples of integers are: -5, 1, 5, 8, 97, and 3,043. Examples of numbers that are not integers are: -1.43, 1 3/4, 3.14, . 09, and 5,643.1.
+FLOAT:
+Floating point numbers are used to represent noninteger fractional numbers and are used in most engineering and technical calculations, for example, 3.256, 2.1, and 0.0036. The most commonly used floating point standard is the IEEE standard.
+STRING:
+Any text, declared by being wrapped in quotation marks i.e. “Hello!”
+BOOLEAN:
+Only has two possible values, true or false.
+VARIABLE AND ASSIGNMENT:
+A variable is a string of characters and numbers associated with a piece of information. The assignment operator, denoted by the “=” symbol, is the operator that is used to assign values to variables in Python. The line x=1 takes the known value, 1, and assigns that value to the variable with name “x”.
