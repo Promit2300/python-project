@@ -28,4 +28,6 @@ while i < 10:
     print(i)
     i += 1
 else:
-    print("to be honest i like coding")    
+    print("to be honest i like coding")  
+
+print("goal")      
