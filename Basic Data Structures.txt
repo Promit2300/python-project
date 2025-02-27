@@ -89,4 +89,4 @@ newlist = [x if x != "banana" else "orange" for x in fruits]
 print(newlist) 		|OUTPUT-['apple', 'orange', 'cherry', 'kiwi', 'mango']
 
 
-i am the bad guy if yiu know 
+i am the bad guy if yiu know i am the bad guy if yiu know 
