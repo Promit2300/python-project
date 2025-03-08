@@ -1,32 +1,30 @@
-from django.shortcuts import render, HttpResponse
-from datetime import datetime
-from home.models import Contact
-from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
-# Create your views here.
-#def index(request):
-    #return HttpResponse("This is Homepage")
 def index(request):
-    return render(request, 'index.html')    
+    print(request.user)
+    if request.user.is_anonymous:
+        return redirect("/login")
+    return render(request, 'index.html')
 
-def about(request):
-    return render(request, 'about.html')    
-    #return HttpResponse("This is About")
-
-def sevices(request):
-    return render(request, 'services.html')    
-    #return HttpResponse("This is service page")
-
-def contact(request):
+def loginUser(request):
     if request.method == "POST":
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        desc = request.POST.get('desc')
-        contact = Contact(name = name, email = email, phone = phone, desc = desc, date = datetime.today())
-        contact.save()
-        messages.success(request, "Your message has been save.")
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        print(username, password)
 
-    
-    return render(request, 'contact.html')    
-   # return HttpResponse("This is contact page")
+        user = authenticate(username=username, password=password)  # Fixed the hardcoded values
+
+        if user is not None:
+            login(request, user)
+            return redirect("/")
+        else:
+            return render(request, "login.html", {"error": "Invalid username or password"})  # Show error message
+
+    return render(request, "login.html")
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/login')
+
